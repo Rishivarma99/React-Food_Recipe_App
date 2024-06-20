@@ -1,0 +1,10 @@
+
+.fr-main{
+  width: 100vw;
+  min-height: 100vw;
+  height: 100%;
+}
+.fr-nolist{
+  text-align: center;
+  margin: 50px;
+}
