@@ -9,7 +9,7 @@ import Details from "./pages/details";
 function App() {
   return (
     <>
-      <div className="fr-main">
+      <div className="">
         <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home></Home>} />

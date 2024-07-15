@@ -6,6 +6,7 @@ export default function GlobalState({ children }) {
   const [searchParam, setSearchParam] = useState("");
   const [fetching, setFetching] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
+  const [RecipeDetails, setRecipeDetails] = useState(null);
 
   async function handleSubmit(e) {
     e.preventDefault(); // from form
@@ -37,6 +38,8 @@ export default function GlobalState({ children }) {
         handleSubmit,
         fetching,
         recipeList,
+        RecipeDetails,
+        setRecipeDetails,
       }}
     >
       {children}

@@ -11,35 +11,23 @@ const Home = () => {
       </div>
     );
   }
-  console.log(recipeList);
+  // console.log(recipeList);
 
   return (
     <>
-      <div className="fr-home-main">
+      <div className="w-[100%]">
         {recipeList && recipeList.length > 0 ? (
-          <div className="fr-home-recipelist">
-            {recipeList.map((item, index) => {
-              return (
-                <div className="fr-home-item shadow-sm">
-                  <div className="fr-item-image">
-                    <img src={item.image_url} alt="" />
-                  </div>
-                  <div className="fr-item-body">
-                    <div className="fr-item-publisher">{item.publisher}</div>
-                    <div className="fr-item-title">{item.title}</div>
-                    <button
-                      type="button"
-                      className="btn btn-primary fr-item-button"
-                    >
-                      Get More Details
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+          // LIST DIV
+          <div className="flex flex-wrap justify-evenly p-2">
+            {/* EACH ITEM  */}
+            {recipeList.map((item, index) => (
+              <RecipeItem item={item} key={item?.id}></RecipeItem>
+            ))}
           </div>
         ) : (
-          <h1 className="fr-nolist">Nothing to show please enter any item </h1>
+          <h1 className="text-3xl text-gray-700 text-center font-semibold capitalize ">
+            Nothing to show please enter any item{" "}
+          </h1>
         )}
       </div>
     </>

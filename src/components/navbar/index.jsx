@@ -8,33 +8,36 @@ const Navbar = () => {
     useContext(GlobalContext);
 
   return (
-    <div className="food-navbar-main">
-      <div className="fr-navbar-title">
+    <div className="flex flex-col justify-center items-center md:flex-row md:justify-between  ">
+      <div className="">
         {" "}
-        <NavLink to={"/"} className=" fr-navbar-navlink">
+        <NavLink
+          to={"/"}
+          className="text-blue-500 text-2xl tracking-widest font-semibold md:text-3xl "
+        >
           FoodRecipe
         </NavLink>
       </div>
-      <div className="fr-navbar-search">
+      <div className="">
         <form action="submit" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Enter a Item"
-            className="shadow"
+            className="border rounded-[2rem] shadow-md text-xl p-2 ps-3 bg-white w-full md:w-80 mb-2 md:text-2xl"
             value={searchParam}
             onChange={(e) => setSearchParam(e.target.value)}
           />
         </form>
       </div>
-      <div className="fr-navbar-pages">
-        <ul>
+      <div className="m-4">
+        <ul className="flex space-x-12 text-xl  font-medium text-blue-950 md:text-2xl ">
           <li>
-            <NavLink to={"/"} className=" fr-navbar-navlink">
+            <NavLink to={"/"} className=" ">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/favorites"} className="fr-navbar-navlink">
+            <NavLink to={"/favorites"} className="">
               Favorites
             </NavLink>
           </li>
