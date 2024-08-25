@@ -1,7 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navbar from "./components/navbar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import Home from "./pages/home";
 import Favorites from "./pages/favorites";
 import Details from "./pages/details";

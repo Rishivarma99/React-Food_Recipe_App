@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const GlobalContext = createContext(null);
 
@@ -7,6 +8,11 @@ export default function GlobalState({ children }) {
   const [fetching, setFetching] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
   const [RecipeDetails, setRecipeDetails] = useState(null);
+  const [favoriteList, setFavoriteList] = useState([]);
+  const notify = () => {
+    // Calling toast method by passing string
+    toast("Hello Geeks");
+  };
 
   async function handleSubmit(e) {
     e.preventDefault(); // from form
@@ -30,6 +36,23 @@ export default function GlobalState({ children }) {
     }
   }
 
+  const handleAddFavorite = (currentItem) => {
+    // console.log(item);
+
+    let cpyFavoriteList = [...favoriteList];
+    let index = cpyFavoriteList.findIndex((item) => item.id == currentItem.id);
+    if (index == -1) {
+      // NOT PRESNT
+      cpyFavoriteList.push(currentItem);
+    } else {
+      // already present remove
+      cpyFavoriteList.splice(index);
+    }
+    setFavoriteList(cpyFavoriteList);
+
+    // console.log(favoriteList);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -40,6 +63,9 @@ export default function GlobalState({ children }) {
         recipeList,
         RecipeDetails,
         setRecipeDetails,
+        favoriteList,
+        setFavoriteList,
+        handleAddFavorite,
       }}
     >
       {children}

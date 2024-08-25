@@ -15,10 +15,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-[100%]">
+      <div className="w-full">
         {recipeList && recipeList.length > 0 ? (
           // LIST DIV
-          <div className="flex flex-wrap justify-evenly p-2">
+          <div className="flex flex-wrap justify-evenly p-5">
             {/* EACH ITEM  */}
             {recipeList.map((item, index) => (
               <RecipeItem item={item} key={item?.id}></RecipeItem>
